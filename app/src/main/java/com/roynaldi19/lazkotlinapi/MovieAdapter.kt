@@ -1,6 +1,7 @@
 package com.roynaldi19.lazkotlinapi
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -19,8 +20,9 @@ class MovieAdapter(var results: ArrayList<MainModel.Result>, val listener: OnAda
     override fun getItemCount() = results.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val result = results[position]
-        holder.binding.textView.text = result.title
+        val (id, title, image ) = results[position]
+        holder.binding.textView.text = title
+        Glide.with(holder.binding.root.context).load(image).centerCrop().into(holder.binding.imageView)
     }
 
     class ViewHolder(val binding: AdapterMovieBinding) : RecyclerView.ViewHolder(binding.root)

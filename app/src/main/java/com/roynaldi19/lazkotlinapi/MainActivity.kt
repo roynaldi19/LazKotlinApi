@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
     private fun showData(data: MainModel) {
         val results = data.result
         movieAdapter.setData(results)
-//        for (result in results) {
-//            printLog("url: ${result.title}")
-//        }
+        for (result in results) {
+            printLog("url: ${result.image}")
+        }
     }
 
 }
