@@ -21,11 +21,12 @@ class MovieAdapter(var results: ArrayList<MainModel.Result>, val listener: OnAda
     override fun getItemCount() = results.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (id, title, image) = results[position]
-        holder.binding.textView.text = title
-        Glide.with(holder.binding.root.context).load(image).centerCrop()
+        val result = results[position]
+        holder.binding.textView.text = result.title
+        Glide.with(holder.binding.root.context).load(result.image).centerCrop()
             .into(holder.binding.imageView)
         holder.binding.textView.setOnClickListener {
+            listener.onClick(result)
 
         }
     }
