@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(result: MainModel.Result) {
                 startActivity(
                     Intent(this@MainActivity, DetailActivity::class.java)
-                        .putExtra("intent_title", result.title)
-                        .putExtra("intent_image", result.image)
+                        .putExtra("title", result.title)
+                        .putExtra("image", result.image)
                 )
             }
         })
